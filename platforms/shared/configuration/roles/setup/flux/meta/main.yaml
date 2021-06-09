@@ -22,8 +22,8 @@ dependencies:
   - role: "kubectl"
     vars:
       kubectl:
-        version: "1.16.13"
+        version: "1.20.0"
         os: "{{ install_os }}"
         arch: "{{ install_arch }}"
         bin_directory: "{{ bin_install_dir }}"
-        checksum: "sha256:170bee26f53829c8917fad343fd10b0b9bcd47dc296c14604b6b28e6c3cec08c"
+        checksum: "sha256:785c1fda09d1d34a94e51b90841faa5ee9f7bf897cb2665426e0ea59f8ddd9e5"
