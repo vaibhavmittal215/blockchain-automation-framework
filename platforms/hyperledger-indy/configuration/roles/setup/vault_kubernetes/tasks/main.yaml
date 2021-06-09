@@ -71,7 +71,7 @@
   shell: |
     export REVIEWER_TOKEN=$(KUBECONFIG={{ kubernetes.config_file }} kubectl get secret $(KUBECONFIG={{ kubernetes.config_file }} kubectl get serviceaccount {{ organization }}-admin-vault-auth -n {{ component_ns }} -o jsonpath={.secrets[0].name}) -n {{ component_ns }} -o  jsonpath={.data.token} | base64 -d)
     echo ${REVIEWER_TOKEN}
-    echo ${kubectl version}
+    kubectl version
     export KUBERNETES_HOST=$(KUBECONFIG={{ kubernetes.config_file }} kubectl config view --minify | grep server | cut -f 2- -d ":" | tr -d " ")
     exho ${KUBERNETES_HOST}
     vault write auth/{{ auth_path }}/config token_reviewer_jwt="$REVIEWER_TOKEN" kubernetes_host="$KUBERNETES_HOST" kubernetes_ca_cert=@"./build/{{ organization }}.ca.cert"
